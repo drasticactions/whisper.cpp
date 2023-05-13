@@ -17,6 +17,10 @@ To test with CoreML:
 
 Add your `mlmodelc` file to the `Models` directory. Make sure it is named correctly for Whisper.cpp to see it. For example, `ggml-base.bin` should be `ggml-base-encoder.mlmodelc`
 
+To enable CoreML in source projects, you need to include the `CoreML` source files in your project, and set your Preprocessor Headers to include `WHISPER_USE_COREML`
+
+![image3](https://github.com/ggerganov/whisper.cpp/assets/898335/74b2c548-8d8e-451e-9c38-a29bba512620)
+
 **Note:** Pay attention to the folder path: `whisper.swiftui.demo/Resources/models` is the appropriate directory to place resources whilst `whisper.swiftui.demo/Models` is related to actual code.
 
 [^1]: I recommend the tiny, base or small models for running on an iOS device.
