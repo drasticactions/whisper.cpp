@@ -1,5 +1,5 @@
-#import "coreml/whisper-encoder.h"
-#import "coreml/whisper-encoder-impl.h"
+#import "whisper-encoder.h"
+#import "whisper-encoder-impl.h"
 
 #import <CoreML/CoreML.h>
 
@@ -53,8 +53,9 @@ void whisper_coreml_encode(
 
     memcpy(out, outCoreML.output.dataPointer, outCoreML.output.count * sizeof(float));
 
-    [outCoreML release];
-    [inMultiArray release];
+    // Breaks with ARC enabled, but can't build without ARC...
+   // [outCoreML release];
+   // [inMultiArray release];
 }
 
 #if __cplusplus
