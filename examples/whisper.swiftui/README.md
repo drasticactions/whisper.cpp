@@ -9,6 +9,14 @@ See also: [whisper.objc](https://github.com/ggerganov/whisper.cpp/tree/master/ex
 4. Add the sample audio file to `whisper.swiftui.demo/Resources/samples` **via Xcode**.
 5. Select the "Release" [^2] build configuration under "Run", then deploy and run to your device.
 
+**CoreML**:
+
+To test with CoreML:
+
+![image2](https://github.com/ggerganov/whisper.cpp/assets/898335/7047b853-b8ce-4460-961b-3920768e6d48)
+
+Add your `mlmodelc` file to the `Models` directory. Make sure it is named correctly for Whisper.cpp to see it. For example, `ggml-base.bin` should be `ggml-base-encoder.mlmodelc`
+
 **Note:** Pay attention to the folder path: `whisper.swiftui.demo/Resources/models` is the appropriate directory to place resources whilst `whisper.swiftui.demo/Models` is related to actual code.
 
 [^1]: I recommend the tiny, base or small models for running on an iOS device.
