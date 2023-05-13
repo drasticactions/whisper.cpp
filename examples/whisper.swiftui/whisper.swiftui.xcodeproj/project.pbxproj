@@ -20,6 +20,9 @@
 		0AAC5DCC29539EB1003032C3 /* ggml.c in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC5DC929539EB0003032C3 /* ggml.c */; settings = {COMPILER_FLAGS = "-DGGML_USE_ACCELERATE -Wno-shorten-64-to-32"; }; };
 		0AAC5DCE2953A05C003032C3 /* WhisperState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC5DCD2953A05C003032C3 /* WhisperState.swift */; };
 		0AAC5DD12953A394003032C3 /* LibWhisper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC5DD02953A394003032C3 /* LibWhisper.swift */; };
+		3AB957F12A0FD0260023B8B5 /* whisper-encoder-impl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB957EB2A0FD0260023B8B5 /* whisper-encoder-impl.m */; };
+		3AB957F22A0FD0260023B8B5 /* whisper-encoder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3AB957ED2A0FD0260023B8B5 /* whisper-encoder.mm */; };
+		3AB957F32A0FD0260023B8B5 /* whisper-decoder-impl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB957F02A0FD0260023B8B5 /* whisper-decoder-impl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +44,12 @@
 		0AAC5DCA29539EB0003032C3 /* ggml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ggml.h; sourceTree = "<group>"; };
 		0AAC5DCD2953A05C003032C3 /* WhisperState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhisperState.swift; sourceTree = "<group>"; };
 		0AAC5DD02953A394003032C3 /* LibWhisper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibWhisper.swift; sourceTree = "<group>"; };
+		3AB957EB2A0FD0260023B8B5 /* whisper-encoder-impl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "whisper-encoder-impl.m"; sourceTree = "<group>"; };
+		3AB957EC2A0FD0260023B8B5 /* whisper-encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "whisper-encoder.h"; sourceTree = "<group>"; };
+		3AB957ED2A0FD0260023B8B5 /* whisper-encoder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "whisper-encoder.mm"; sourceTree = "<group>"; };
+		3AB957EE2A0FD0260023B8B5 /* whisper-decoder-impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "whisper-decoder-impl.h"; sourceTree = "<group>"; };
+		3AB957EF2A0FD0260023B8B5 /* whisper-encoder-impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "whisper-encoder-impl.h"; sourceTree = "<group>"; };
+		3AB957F02A0FD0260023B8B5 /* whisper-decoder-impl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "whisper-decoder-impl.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,10 +133,12 @@
 		0AAC5DC529539E89003032C3 /* whisper.cpp */ = {
 			isa = PBXGroup;
 			children = (
+				3AB957EA2A0FD0260023B8B5 /* coreml */,
 				0AAC5DC929539EB0003032C3 /* ggml.c */,
 				0AAC5DCA29539EB0003032C3 /* ggml.h */,
 				0AAC5DC729539EB0003032C3 /* whisper.cpp */,
 				0AAC5DC829539EB0003032C3 /* whisper.h */,
+				3AB957ED2A0FD0260023B8B5 /* whisper-encoder.mm */,
 			);
 			name = whisper.cpp;
 			path = ../..;
@@ -158,6 +169,18 @@
 				0AAC5DA129539CD0003032C3 /* Preview Content */,
 			);
 			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		3AB957EA2A0FD0260023B8B5 /* coreml */ = {
+			isa = PBXGroup;
+			children = (
+				3AB957EB2A0FD0260023B8B5 /* whisper-encoder-impl.m */,
+				3AB957EC2A0FD0260023B8B5 /* whisper-encoder.h */,
+				3AB957EE2A0FD0260023B8B5 /* whisper-decoder-impl.h */,
+				3AB957EF2A0FD0260023B8B5 /* whisper-encoder-impl.h */,
+				3AB957F02A0FD0260023B8B5 /* whisper-decoder-impl.m */,
+			);
+			path = coreml;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,11 +258,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AAC5D9D29539CCF003032C3 /* ContentView.swift in Sources */,
+				3AB957F22A0FD0260023B8B5 /* whisper-encoder.mm in Sources */,
 				0AAC5D9B29539CCF003032C3 /* WhisperCppDemoApp.swift in Sources */,
+				3AB957F12A0FD0260023B8B5 /* whisper-encoder-impl.m in Sources */,
 				0AAC5DCC29539EB1003032C3 /* ggml.c in Sources */,
 				0AAC5DCE2953A05C003032C3 /* WhisperState.swift in Sources */,
 				0AAC5DD12953A394003032C3 /* LibWhisper.swift in Sources */,
 				0AA7514C2953B569001EE061 /* RiffWaveUtils.swift in Sources */,
+				3AB957F32A0FD0260023B8B5 /* whisper-decoder-impl.m in Sources */,
 				0AAC5DCB29539EB1003032C3 /* whisper.cpp in Sources */,
 				0AA7514E2953D958001EE061 /* Recorder.swift in Sources */,
 			);
@@ -369,9 +395,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"whisper.swiftui.demo/Supporting files/Preview Content\"";
-				DEVELOPMENT_TEAM = 3TZ9BM962G;
+				DEVELOPMENT_TEAM = 4RY43FCKF8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					WHISPER_USE_COREML,
+					"DEBUG=1",
+					"$(inherited)",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -410,9 +441,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"whisper.swiftui.demo/Supporting files/Preview Content\"";
-				DEVELOPMENT_TEAM = 3TZ9BM962G;
+				DEVELOPMENT_TEAM = 4RY43FCKF8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = WHISPER_USE_COREML;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
